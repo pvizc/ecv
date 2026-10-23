@@ -27,7 +27,7 @@ const emailUrl = `mailto:${profile.email}?subject=${encodeURIComponent(t.emailSu
 
 <Layout lang={lang} title={`${profile.name} · ${t.tagline}`} description={t.description}>
 	<main class="mx-auto flex max-w-md flex-col gap-12 px-6 pt-6 pb-10">
-		<div class="flex items-center justify-end gap-3">
+		<div class="flex items-center justify-between gap-3">
 			<LanguageSwitcher lang={lang} label={t.language} />
 			<ThemeSwitcher labels={t.theme} />
 		</div>
