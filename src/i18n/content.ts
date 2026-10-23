@@ -20,8 +20,9 @@ export const profile = {
 export const content = {
 	es: {
 		tagline: 'Clases particulares de inglés',
+		headline: '¿Inglés? ¡Fácil!',
 		intro:
-			'Clases para aprobar, conseguir un título oficial y ganar soltura al hablar. A tu ritmo y centradas en lo que necesitas.',
+			'Aprobar, sacarte el B2, irte de Erasmus o entender tus series sin subtítulos. Cuéntame tu objetivo y vamos a por él.',
 		description:
 			'Clases de inglés presenciales en Ensanche de Vallecas (Madrid), a domicilio y online. ESO, Bachillerato, PAU, universidad, Cambridge hasta el B2 First y conversación.',
 		modes: [
@@ -71,7 +72,7 @@ export const content = {
 		],
 		aboutTitle: 'Sobre mí',
 		about: [
-			'Soy ingeniero de software y gallego, aunque llevo cinco años viviendo en Madrid. Viví una temporada en Estados Unidos, estudié en la Escuela Oficial de Idiomas y tengo el C1 Advanced de Cambridge.',
+			`Soy ${profile.name}, ingeniero de software y gallego, aunque llevo cinco años viviendo en Madrid. Viví una temporada en Estados Unidos, estudié en la Escuela Oficial de Idiomas y tengo el C1 Advanced de Cambridge.`,
 			'El inglés es mucho más que una asignatura: es la lengua en la que se comparte gran parte de lo que se investiga, se programa y se crea hoy en día. Te permite estudiar o trabajar fuera, acceder a más oportunidades y disfrutar de series, libros o música en versión original. Mi objetivo es que aprendas a usarlo de verdad, no solo para el examen.',
 		],
 		language: 'Idioma',
@@ -79,8 +80,9 @@ export const content = {
 	},
 	en: {
 		tagline: 'Private English lessons',
+		headline: 'English? Easy!',
 		intro:
-			'Lessons to pass your exams, earn an official certificate and speak with confidence. At your own pace and focused on what you need.',
+			'Passing your exams, getting your B2, going on an Erasmus or watching your favourite series without subtitles. Tell me your goal and let’s go for it.',
 		description:
 			'English lessons in person in Ensanche de Vallecas (Madrid), at your home and online. Secondary school, university entrance exam, university, Cambridge up to B2 First and conversation.',
 		modes: [
@@ -130,7 +132,7 @@ export const content = {
 		],
 		aboutTitle: 'About me',
 		about: [
-			'I’m a software engineer from Galicia, and I’ve been living in Madrid for five years. I lived in the United States for a while, studied at the Escuela Oficial de Idiomas (Spain’s official language school) and hold the Cambridge C1 Advanced.',
+			`I’m ${profile.name}, a software engineer from Galicia, and I’ve been living in Madrid for five years. I lived in the United States for a while, studied at the Escuela Oficial de Idiomas (Spain’s official language school) and hold the Cambridge C1 Advanced.`,
 			'English is much more than a school subject: it’s the language in which much of today’s research, software and creative work is shared. It lets you study or work abroad, opens up more opportunities and lets you enjoy series, books or music in their original language. My goal is for you to really use it, not just for the exam.',
 		],
 		language: 'Language',

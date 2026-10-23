@@ -36,7 +36,7 @@ const emailUrl = `mailto:${profile.email}?subject=${encodeURIComponent(t.emailSu
 			<p class="text-sm font-medium tracking-wide text-teal-700 uppercase dark:text-teal-400">
 				{t.tagline}
 			</p>
-			<h1 class="text-4xl leading-tight font-semibold tracking-tight">{profile.name}</h1>
+			<h1 class="font-serif text-4xl leading-tight font-semibold text-balance">{t.headline}</h1>
 			<p class="text-lg leading-relaxed text-stone-600 dark:text-stone-400">{t.intro}</p>
 			<ul class="flex flex-wrap gap-2 text-sm">
 				{
@@ -83,7 +83,7 @@ const emailUrl = `mailto:${profile.email}?subject=${encodeURIComponent(t.emailSu
 		</nav>
 
 		<section aria-labelledby="offer" class="flex flex-col gap-5">
-			<h2 id="offer" class="text-xl font-semibold tracking-tight">{t.offerTitle}</h2>
+			<h2 id="offer" class="font-serif text-2xl font-semibold">{t.offerTitle}</h2>
 			<ul class="flex flex-col divide-y divide-stone-200 dark:divide-stone-800">
 				{
 					t.offer.map((item) => (
@@ -97,7 +97,7 @@ const emailUrl = `mailto:${profile.email}?subject=${encodeURIComponent(t.emailSu
 		</section>
 
 		<section aria-labelledby="steps" class="flex flex-col gap-5">
-			<h2 id="steps" class="text-xl font-semibold tracking-tight">{t.stepsTitle}</h2>
+			<h2 id="steps" class="font-serif text-2xl font-semibold">{t.stepsTitle}</h2>
 			<ol class="flex flex-col gap-3">
 				{
 					t.steps.map((step, i) => (
@@ -113,7 +113,7 @@ const emailUrl = `mailto:${profile.email}?subject=${encodeURIComponent(t.emailSu
 		</section>
 
 		<section aria-labelledby="prices" class="flex flex-col gap-5">
-			<h2 id="prices" class="text-xl font-semibold tracking-tight">{t.pricesTitle}</h2>
+			<h2 id="prices" class="font-serif text-2xl font-semibold">{t.pricesTitle}</h2>
 			<ul class="flex flex-col gap-3">
 				{
 					t.prices.map((item) => (
@@ -133,7 +133,7 @@ const emailUrl = `mailto:${profile.email}?subject=${encodeURIComponent(t.emailSu
 		</section>
 
 		<section aria-labelledby="about" class="flex flex-col gap-5">
-			<h2 id="about" class="text-xl font-semibold tracking-tight">{t.aboutTitle}</h2>
+			<h2 id="about" class="font-serif text-2xl font-semibold">{t.aboutTitle}</h2>
 			<div class="flex flex-col gap-4 leading-relaxed text-stone-600 dark:text-stone-400">
 				{t.about.map((paragraph) => <p>{paragraph}</p>)}
 			</div>
