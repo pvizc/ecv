@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+/* Tema sin JavaScript: lo decide el selector de ThemeSwitcher.astro.
+   Oscuro si se elige "Oscuro", o si el sistema es oscuro y no se ha elegido "Claro". */
+@custom-variant dark {
+	&:where(html:has(#theme-dark:checked), html:has(#theme-dark:checked) *) {
+		@slot;
+	}
+	@media (prefers-color-scheme: dark) {
+		&:where(html:not(:has(#theme-light:checked)), html:not(:has(#theme-light:checked)) *) {
+			@slot;
+		}
+	}
+}
+
+html {
+	color-scheme: light dark;
+}
+
+html:has(#theme-light:checked) {
+	color-scheme: light;
+}
+
+html:has(#theme-dark:checked) {
+	color-scheme: dark;
+}

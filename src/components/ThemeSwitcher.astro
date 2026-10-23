@@ -1,0 +1,28 @@
+---
+import Monitor from '@lucide/astro/icons/monitor';
+import Moon from '@lucide/astro/icons/moon';
+import Sun from '@lucide/astro/icons/sun';
+
+// Sin JavaScript: los radios controlan el tema vía `html:has(...)` en global.css.
+// Los ids `theme-*` los usa global.css; si los cambias, cámbialos también allí.
+const options = [
+	{ id: 'theme-system', label: 'Sistema', icon: Monitor, checked: true },
+	{ id: 'theme-light', label: 'Claro', icon: Sun },
+	{ id: 'theme-dark', label: 'Oscuro', icon: Moon },
+];
+---
+
+<fieldset class="flex rounded-full border border-stone-300 p-0.5 dark:border-stone-700">
+	<legend class="sr-only">Tema</legend>
+	{
+		options.map(({ id, label, icon: Icon, checked }) => (
+			<label for={id} title={label} class="cursor-pointer">
+				<input type="radio" name="theme" id={id} checked={checked} class="peer sr-only" />
+				<span class="flex size-8 items-center justify-center rounded-full text-stone-500 transition-colors peer-checked:bg-stone-200 peer-checked:text-stone-900 peer-focus-visible:outline-2 peer-focus-visible:outline-teal-700 hover:text-stone-900 dark:text-stone-400 dark:peer-checked:bg-stone-800 dark:peer-checked:text-stone-100 dark:hover:text-stone-100">
+					<Icon size={16} aria-hidden="true" />
+					<span class="sr-only">{label}</span>
+				</span>
+			</label>
+		))
+	}
+</fieldset>
