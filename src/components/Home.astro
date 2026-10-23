@@ -1,0 +1,125 @@
+---
+import Mail from '@lucide/astro/icons/mail';
+import Github from 'simple-icons-astro/Github';
+import Whatsapp from 'simple-icons-astro/Whatsapp';
+import { content, profile, type Locale } from '../i18n/content';
+import Layout from '../layouts/Layout.astro';
+import Linkedin from './icons/Linkedin.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import ThemeSwitcher from './ThemeSwitcher.astro';
+
+interface Props {
+	lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = content[lang];
+
+const socials = [
+	{ label: 'GitHub', href: profile.github, icon: Github },
+	{ label: 'LinkedIn', href: profile.linkedin, icon: Linkedin },
+];
+
+const whatsappUrl = `https://wa.me/${profile.whatsapp}?text=${encodeURIComponent(t.whatsappMessage)}`;
+const emailUrl = `mailto:${profile.email}?subject=${encodeURIComponent(t.emailSubject)}`;
+---
+
+<Layout lang={lang} title={`${profile.name} · ${t.tagline}`} description={t.description}>
+	<main class="mx-auto flex max-w-md flex-col gap-12 px-6 pt-6 pb-10">
+		<div class="flex items-center justify-end gap-3">
+			<LanguageSwitcher lang={lang} label={t.language} />
+			<ThemeSwitcher labels={t.theme} />
+		</div>
+
+		<header class="-mt-4 flex flex-col gap-5">
+			<p class="text-sm font-medium tracking-wide text-teal-700 uppercase dark:text-teal-400">
+				{t.tagline}
+			</p>
+			<h1 class="text-4xl leading-tight font-semibold tracking-tight">{profile.name}</h1>
+			<p class="text-lg leading-relaxed text-stone-600 dark:text-stone-400">{t.intro}</p>
+			<ul class="flex flex-wrap gap-2 text-sm">
+				<li class="rounded-full border border-stone-300 px-3 py-1 dark:border-stone-700">
+					{t.inPerson} · {profile.location}
+				</li>
+				<li class="rounded-full border border-stone-300 px-3 py-1 dark:border-stone-700">{t.online}</li>
+			</ul>
+		</header>
+
+		<nav aria-label={t.contactLabel} class="flex flex-col gap-3">
+			<a
+				href={whatsappUrl}
+				class="flex items-center justify-center gap-2 rounded-xl bg-teal-700 px-5 py-4 text-base font-semibold text-white transition-colors hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700 dark:bg-teal-500 dark:text-stone-950 dark:hover:bg-teal-400"
+			>
+				<Whatsapp size={20} fill="currentColor" aria-hidden="true" />
+				{t.whatsappCta}
+			</a>
+			<a
+				href={emailUrl}
+				class="flex items-center justify-center gap-2 rounded-xl border border-stone-300 px-5 py-4 text-base font-semibold transition-colors hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700 dark:border-stone-700 dark:hover:bg-stone-900"
+			>
+				<Mail size={20} aria-hidden="true" />
+				{profile.email}
+			</a>
+		</nav>
+
+		<section aria-labelledby="offer" class="flex flex-col gap-5">
+			<h2 id="offer" class="text-xl font-semibold tracking-tight">{t.offerTitle}</h2>
+			<ul class="flex flex-col divide-y divide-stone-200 dark:divide-stone-800">
+				{
+					t.offer.map((item) => (
+						<li class="py-3 first:pt-0 last:pb-0">
+							<p class="font-medium">{item.title}</p>
+							<p class="text-stone-600 dark:text-stone-400">{item.text}</p>
+						</li>
+					))
+				}
+			</ul>
+		</section>
+
+		<section aria-labelledby="steps" class="flex flex-col gap-5">
+			<h2 id="steps" class="text-xl font-semibold tracking-tight">{t.stepsTitle}</h2>
+			<ol class="flex flex-col gap-3">
+				{
+					t.steps.map((step, i) => (
+						<li class="flex gap-4">
+							<span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-teal-700/10 text-sm font-semibold text-teal-800 dark:bg-teal-400/15 dark:text-teal-300">
+								{i + 1}
+							</span>
+							<span class="pt-0.5">{step}</span>
+						</li>
+					))
+				}
+			</ol>
+		</section>
+
+		<section aria-labelledby="about" class="flex flex-col gap-5">
+			<h2 id="about" class="text-xl font-semibold tracking-tight">{t.aboutTitle}</h2>
+			<div class="flex flex-col gap-4 leading-relaxed text-stone-600 dark:text-stone-400">
+				{t.about.map((paragraph) => <p>{paragraph}</p>)}
+			</div>
+		</section>
+
+		<footer
+			class="flex items-center justify-between border-t border-stone-200 pt-6 text-sm text-stone-500 dark:border-stone-800"
+		>
+			<p>© {new Date().getFullYear()} {profile.name}</p>
+			<ul class="-mr-2 flex gap-1">
+				{
+					socials.map(({ label, href, icon: Icon }) => (
+						<li>
+							<a
+								href={href}
+								aria-label={label}
+								title={label}
+								rel="me noopener"
+								class="flex size-10 items-center justify-center rounded-full transition-colors hover:text-stone-900 focus-visible:outline-2 focus-visible:outline-teal-700 dark:hover:text-stone-100"
+							>
+								<Icon size={20} fill="currentColor" aria-hidden="true" />
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</footer>
+	</main>
+</Layout>
