@@ -78,7 +78,7 @@ const emailUrl = `mailto:${profile.email}?subject=${encodeURIComponent(t.emailSu
 				class="flex items-center justify-center gap-2 rounded-xl border border-stone-300 px-5 py-4 text-base font-semibold transition-colors hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700 dark:border-stone-700 dark:hover:bg-stone-900"
 			>
 				<Mail size={20} aria-hidden="true" />
-				{profile.email}
+				{t.emailCta}
 			</a>
 		</nav>
 
@@ -90,26 +90,6 @@ const emailUrl = `mailto:${profile.email}?subject=${encodeURIComponent(t.emailSu
 						<li class="py-3 first:pt-0 last:pb-0">
 							<p class="font-medium">{item.title}</p>
 							<p class="text-stone-600 dark:text-stone-400">{item.text}</p>
-						</li>
-					))
-				}
-			</ul>
-		</section>
-
-		<section aria-labelledby="prices" class="flex flex-col gap-5">
-			<h2 id="prices" class="text-xl font-semibold tracking-tight">{t.pricesTitle}</h2>
-			<ul class="flex flex-col gap-3">
-				{
-					t.prices.map((item) => (
-						<li class="flex items-start justify-between gap-4 rounded-xl border border-stone-200 p-4 dark:border-stone-800">
-							<div>
-								<p class="font-medium">{item.title}</p>
-								<p class="text-sm text-stone-600 dark:text-stone-400">{item.text}</p>
-							</div>
-							<p class="shrink-0 text-right">
-								<span class="text-2xl font-semibold tracking-tight">{item.price}</span>
-								<span class="block text-xs text-stone-500">{t.perSession}</span>
-							</p>
 						</li>
 					))
 				}
@@ -130,6 +110,26 @@ const emailUrl = `mailto:${profile.email}?subject=${encodeURIComponent(t.emailSu
 					))
 				}
 			</ol>
+		</section>
+
+		<section aria-labelledby="prices" class="flex flex-col gap-5">
+			<h2 id="prices" class="text-xl font-semibold tracking-tight">{t.pricesTitle}</h2>
+			<ul class="flex flex-col gap-3">
+				{
+					t.prices.map((item) => (
+						<li class="flex items-start justify-between gap-4 rounded-xl border border-stone-200 p-4 dark:border-stone-800">
+							<div>
+								<p class="font-medium">{item.title}</p>
+								<p class="text-sm text-stone-600 dark:text-stone-400">{item.text}</p>
+							</div>
+							<p class="shrink-0 text-right">
+								<span class="text-2xl font-semibold tracking-tight">{item.price}</span>
+								<span class="block text-xs text-stone-500">{t.perSession}</span>
+							</p>
+						</li>
+					))
+				}
+			</ul>
 		</section>
 
 		<section aria-labelledby="about" class="flex flex-col gap-5">

@@ -32,6 +32,7 @@ export const content = {
 		contactLabel: 'Contacto',
 		whatsappCta: 'Escríbeme por WhatsApp',
 		whatsappMessage: 'Hola, me interesan las clases de inglés.',
+		emailCta: 'Contáctame por email',
 		emailSubject: 'Clases de inglés',
 		offerTitle: 'En qué te ayudo',
 		offer: [
@@ -90,6 +91,7 @@ export const content = {
 		contactLabel: 'Contact',
 		whatsappCta: 'Message me on WhatsApp',
 		whatsappMessage: 'Hi, I’m interested in English lessons.',
+		emailCta: 'Contact me by email',
 		emailSubject: 'English lessons',
 		offerTitle: 'How I can help',
 		offer: [
