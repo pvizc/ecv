@@ -1,0 +1,17 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "learn-english",
+	"compatibility_date": "2026-10-01",
+	// Worker solo de assets: sirve dist/, donde Astro deja la web en learn-english/.
+	"assets": {
+		"directory": "./dist",
+		"not_found_handling": "404-page"
+	},
+	"workers_dev": false,
+	"preview_urls": false,
+	// La ruta solo funciona si pvizc.com tiene un registro DNS proxied (nube naranja).
+	"routes": [
+		{ "pattern": "pvizc.com/learn-english", "zone_name": "pvizc.com" },
+		{ "pattern": "pvizc.com/learn-english/*", "zone_name": "pvizc.com" }
+	]
+}
