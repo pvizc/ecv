@@ -9,27 +9,36 @@ const profile = {
 	name: 'Paulo Vizcaíno',
 	tagline: 'Clases particulares de inglés',
 	intro:
-		'Clases adaptadas a ti: a tu nivel, a tu ritmo y a lo que necesitas conseguir. Sin libros eternos ni teoría de más.',
+		'Aprueba, sácate el título y suéltate hablando. Clases a tu ritmo, sin rollos y sin repetir lo que ya te dan en clase.',
 	location: 'Ensanche de Vallecas',
 	description:
-		'Clases particulares de inglés presenciales en Ensanche de Vallecas (Madrid) y online. ESO, Bachillerato, exámenes oficiales y conversación.',
+		'Clases de inglés presenciales en Ensanche de Vallecas (Madrid) y online. ESO, Bachillerato, Selectividad, Cambridge hasta el B2 First y conversación.',
 	whatsapp: '34628788166', // formato internacional, sin "+" ni espacios
 	email: 'learn.english@pvizc.com',
 };
 
 const offer = [
-	{ title: 'ESO y Bachillerato', text: 'Refuerzo de lo que ves en clase y preparación de exámenes.' },
-	{ title: 'Exámenes oficiales', text: 'Cambridge hasta el First: A2 Key, B1 Preliminary y B2 First.' },
-	{ title: 'Conversación', text: 'Práctica para ganar fluidez y perder el miedo a hablar.' },
+	{
+		title: 'ESO y Bachillerato',
+		text: 'Para que los exámenes y la Selectividad no te pillen a última hora.',
+	},
+	{
+		title: 'Títulos de Cambridge',
+		text: 'A2 Key, B1 Preliminary y B2 First. Ese B2 que te piden en la uni o para irte de Erasmus.',
+	},
+	{
+		title: 'Conversación',
+		text: 'Habla de lo que te guste (series, música, viajes…) y pierde el miedo a equivocarte.',
+	},
 ];
 
 const steps = [
-	'Escríbeme y cuéntame qué buscas.',
-	'Hacemos una primera clase para ver tu nivel.',
-	'Fijamos horario y empezamos.',
+	'Escríbeme por WhatsApp y cuéntame qué necesitas.',
+	'Hacemos una primera clase y vemos tu nivel.',
+	'Elegimos horario y a por ello.',
 ];
 
-const whatsappUrl = `https://wa.me/${profile.whatsapp}?text=${encodeURIComponent('Hola, me interesan las clases de inglés.')}`;
+const whatsappUrl = `https://wa.me/${profile.whatsapp}?text=${encodeURIComponent('¡Hola! Me interesan las clases de inglés.')}`;
 const emailUrl = `mailto:${profile.email}?subject=${encodeURIComponent('Clases de inglés')}`;
 ---
 
@@ -71,7 +80,7 @@ const emailUrl = `mailto:${profile.email}?subject=${encodeURIComponent('Clases d
 		</nav>
 
 		<section aria-labelledby="offer" class="flex flex-col gap-5">
-			<h2 id="offer" class="text-xl font-semibold tracking-tight">Qué puedo ofrecerte</h2>
+			<h2 id="offer" class="text-xl font-semibold tracking-tight">En qué te ayudo</h2>
 			<ul class="flex flex-col divide-y divide-stone-200 dark:divide-stone-800">
 				{
 					offer.map((item) => (
