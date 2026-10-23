@@ -2,19 +2,26 @@
 import Monitor from '@lucide/astro/icons/monitor';
 import Moon from '@lucide/astro/icons/moon';
 import Sun from '@lucide/astro/icons/sun';
+import type { Content } from '../i18n/content';
+
+interface Props {
+	labels: Content['theme'];
+}
+
+const { labels } = Astro.props;
 
 // Los radios controlan el tema vía `html:has(...)` en global.css, así que funciona sin JavaScript.
 // El script de abajo solo recuerda la elección entre visitas.
 // Los ids `theme-*` los usa global.css; si los cambias, cámbialos también allí.
 const options = [
-	{ value: 'system', label: 'Sistema', icon: Monitor, checked: true },
-	{ value: 'light', label: 'Claro', icon: Sun },
-	{ value: 'dark', label: 'Oscuro', icon: Moon },
+	{ value: 'system', label: labels.system, icon: Monitor, checked: true },
+	{ value: 'light', label: labels.light, icon: Sun },
+	{ value: 'dark', label: labels.dark, icon: Moon },
 ];
 ---
 
 <fieldset id="theme-switcher" class="flex rounded-full border border-stone-300 p-0.5 dark:border-stone-700">
-	<legend class="sr-only">Tema</legend>
+	<legend class="sr-only">{labels.legend}</legend>
 	{
 		options.map(({ value, label, icon: Icon, checked }) => (
 			<label for={`theme-${value}`} title={label} class="cursor-pointer">
