@@ -1,6 +1,8 @@
 ---
 import Mail from '@lucide/astro/icons/mail';
+import Github from 'simple-icons-astro/Github';
 import Whatsapp from 'simple-icons-astro/Whatsapp';
+import Linkedin from '../components/icons/Linkedin.astro';
 import ThemeSwitcher from '../components/ThemeSwitcher.astro';
 import Layout from '../layouts/Layout.astro';
 
@@ -9,36 +11,48 @@ const profile = {
 	name: 'Paulo Vizcaíno',
 	tagline: 'Clases particulares de inglés',
 	intro:
-		'Aprueba, sácate el título y suéltate hablando. Clases a tu ritmo, sin rollos y sin repetir lo que ya te dan en clase.',
+		'Clases para aprobar, conseguir un título oficial y ganar soltura al hablar. A tu ritmo y centradas en lo que necesitas.',
 	location: 'Ensanche de Vallecas',
 	description:
-		'Clases de inglés presenciales en Ensanche de Vallecas (Madrid) y online. ESO, Bachillerato, Selectividad, Cambridge hasta el B2 First y conversación.',
+		'Clases de inglés presenciales en Ensanche de Vallecas (Madrid) y online. ESO, Bachillerato, PAU, Cambridge hasta el B2 First y conversación.',
 	whatsapp: '34628788166', // formato internacional, sin "+" ni espacios
 	email: 'learn.english@pvizc.com',
+	github: 'https://github.com/pvizc',
+	linkedin: 'https://www.linkedin.com/in/pvizc/',
 };
 
 const offer = [
 	{
 		title: 'ESO y Bachillerato',
-		text: 'Para que los exámenes y la Selectividad no te pillen a última hora.',
+		text: 'Refuerzo durante el curso y preparación de exámenes y de la PAU (Selectividad).',
 	},
 	{
 		title: 'Títulos de Cambridge',
-		text: 'A2 Key, B1 Preliminary y B2 First. Ese B2 que te piden en la uni o para irte de Erasmus.',
+		text: 'A2 Key, B1 Preliminary y B2 First. Un título oficial que suma en la universidad, para un Erasmus o en tu primer trabajo.',
 	},
 	{
 		title: 'Conversación',
-		text: 'Habla de lo que te guste (series, música, viajes…) y pierde el miedo a equivocarte.',
+		text: 'Práctica sobre temas que te interesen, para ganar fluidez y confianza al hablar.',
 	},
 ];
 
 const steps = [
 	'Escríbeme por WhatsApp y cuéntame qué necesitas.',
-	'Hacemos una primera clase y vemos tu nivel.',
-	'Elegimos horario y a por ello.',
+	'Hacemos una primera clase para conocer tu nivel.',
+	'Acordamos un horario y empezamos.',
 ];
 
-const whatsappUrl = `https://wa.me/${profile.whatsapp}?text=${encodeURIComponent('¡Hola! Me interesan las clases de inglés.')}`;
+const about = [
+	'Soy ingeniero de software y gallego, aunque llevo cinco años viviendo en Madrid. Viví una temporada en Estados Unidos, estudié en la Escuela Oficial de Idiomas y tengo el C1 Advanced de Cambridge.',
+	'El inglés es mucho más que una asignatura: es la lengua en la que se comparte gran parte de lo que se investiga, se programa y se crea hoy en día. Te permite estudiar o trabajar fuera, acceder a más oportunidades y disfrutar de series, libros o música en versión original. Mi objetivo es que aprendas a usarlo de verdad, no solo para el examen.',
+];
+
+const socials = [
+	{ label: 'GitHub', href: profile.github, icon: Github },
+	{ label: 'LinkedIn', href: profile.linkedin, icon: Linkedin },
+];
+
+const whatsappUrl = `https://wa.me/${profile.whatsapp}?text=${encodeURIComponent('Hola, me interesan las clases de inglés.')}`;
 const emailUrl = `mailto:${profile.email}?subject=${encodeURIComponent('Clases de inglés')}`;
 ---
 
@@ -109,8 +123,34 @@ const emailUrl = `mailto:${profile.email}?subject=${encodeURIComponent('Clases d
 			</ol>
 		</section>
 
-		<footer class="border-t border-stone-200 pt-6 text-sm text-stone-500 dark:border-stone-800">
+		<section aria-labelledby="about" class="flex flex-col gap-5">
+			<h2 id="about" class="text-xl font-semibold tracking-tight">Sobre mí</h2>
+			<div class="flex flex-col gap-4 leading-relaxed text-stone-600 dark:text-stone-400">
+				{about.map((paragraph) => <p>{paragraph}</p>)}
+			</div>
+		</section>
+
+		<footer
+			class="flex items-center justify-between border-t border-stone-200 pt-6 text-sm text-stone-500 dark:border-stone-800"
+		>
 			<p>© {new Date().getFullYear()} {profile.name}</p>
+			<ul class="-mr-2 flex gap-1">
+				{
+					socials.map(({ label, href, icon: Icon }) => (
+						<li>
+							<a
+								href={href}
+								aria-label={label}
+								title={label}
+								rel="me noopener"
+								class="flex size-10 items-center justify-center rounded-full transition-colors hover:text-stone-900 focus-visible:outline-2 focus-visible:outline-teal-700 dark:hover:text-stone-100"
+							>
+								<Icon size={20} fill="currentColor" aria-hidden="true" />
+							</a>
+						</li>
+					))
+				}
+			</ul>
 		</footer>
 	</main>
 </Layout>
